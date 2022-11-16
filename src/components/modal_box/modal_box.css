@@ -51,4 +51,8 @@
         font-size: 40px;
 
     }
+
+    #button_container {
+        flex-wrap: wrap;
+    }
 }
