@@ -75,13 +75,13 @@ const ModalBox = ({ handleCorrect, handleIncorrect }: { handleCorrect: Dispatch<
             handleCorrect(prev => prev + 1);
             event.currentTarget.classList.add('correct');
             setTimeout(() =>
-                setTrigger(!trigger), 1500);
+                setTrigger(!trigger), 1000);
         } else {
             handleIncorrect(prev => prev + 1);
             event.currentTarget.classList.add('incorrect');
 
             setTimeout(() =>
-                setTrigger(!trigger), 1500);
+                setTrigger(!trigger), 1000);
         }
     }
 

@@ -12,13 +12,6 @@
     align-items: center;
 }
 
-@media screen and (max-width: 415px) {
-
-    #menu_box {
-        width: 97vw;
-    }
-}
-
 .menu_box--element-container {
     display: flex;
     justify-content: space-around;
@@ -41,4 +34,11 @@
 
 #level {
     padding: 4px;
+}
+
+@media screen and (max-width: 415px) {
+
+    #menu_box {
+        width: 97vw;
+    }
 }

@@ -11,12 +11,6 @@
     align-items: center;
 }
 
-@media screen and (max-width: 415px) {
-    #modal_box {
-        width: 97vw;
-    }
-}
-
 #word {
     font-size: 46px;
 }
@@ -46,4 +40,15 @@
     background-color: green !important;
     color: white !important;
     transform: scale(1.4) !important;
+}
+
+@media screen and (max-width: 415px) {
+    #modal_box {
+        width: 97vw;
+    }
+
+    #word {
+        font-size: 40px;
+
+    }
 }
