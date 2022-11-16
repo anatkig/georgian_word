@@ -1,6 +1,5 @@
 import './menu_box.css';
 import { useState, useEffect, SetStateAction, Dispatch } from 'react';
-import axios from 'axios';
 import shouldUpdateCurrentIndex from '../../logic/menu_box_logic';
 
 
