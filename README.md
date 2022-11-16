@@ -14,6 +14,14 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
+### `npm run server` 
+
+Runs json-server
+
+### `npm run dev`
+
+Runs the application together with json-server
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
@@ -44,3 +52,9 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+
+**How it works.**
+
+At the beginning you are given 5 words to practice. As soon as the ratio between correct and incorrect hits gets to 9/1 and the total number of hits is more than the total number of words you have, you are given another 5 words. So, your vocabulary will constantly grow by 5 words and it will be more difficult to get to the next level.

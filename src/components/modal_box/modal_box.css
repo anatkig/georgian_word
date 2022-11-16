@@ -1,0 +1,32 @@
+#modal_box {
+    width: 700px;
+    height: 200px;
+    background: green;
+    font-size: 24px;
+    margin: auto;
+    box-shadow: 0 0 7px 10px gray;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#word {}
+
+#button_container {
+    display: flex;
+    justify-content: space-around;
+    padding: 2px;
+}
+
+#delete_button {
+    background-color: black;
+    cursor: pointer;
+    color: white;
+}
+
+#next {
+    font-size: 25px;
+    cursor: pointer;
+}

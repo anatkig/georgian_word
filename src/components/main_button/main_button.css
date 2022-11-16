@@ -1,0 +1,13 @@
+.main_button {
+    padding: 3px;
+    border: solid black 1px;
+    background-color: lightblue;
+    color: darkgreen;
+    font-size: 26px;
+    margin: 3px;
+    cursor: pointer;
+}
+
+.main_button:hover {
+    transform: scale(1.1);
+}

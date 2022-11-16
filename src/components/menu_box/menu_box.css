@@ -1,0 +1,31 @@
+#menu_box {
+    width: 700px;
+    height: 100px;
+    background: green;
+    font-size: 24px;
+    margin: 5px auto;
+    box-shadow: 0 0 7px 10px gray;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu_box--element-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu_box--element {
+    padding: 4px;
+    margin: 2px 15px;
+
+    width: 100px;
+
+    font-size: 25px;
+    background-color: white;
+    color: black;
+
+
+}
