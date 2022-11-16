@@ -71,21 +71,26 @@ const ModalBox = ({ handleCorrect, handleIncorrect }: { handleCorrect: Dispatch<
     }
 
     const handleMainButtonClick = (event: React.MouseEvent, answer: string) => {
+        const element = event.currentTarget;
+        element.setAttribute("id", "pressed")
         if (answer === correctAnswer) {
+
             handleCorrect(prev => prev + 1);
-            event.currentTarget.classList.add('correct');
-            setTimeout((event: React.MouseEvent) => {
-                event.currentTarget.classList.remove('correct');
+            element.classList.add('correct');
+            setTimeout(() => {
+                const element = document.querySelector('#pressed');
+                element?.classList.remove('correct');
                 setTrigger(!trigger);
 
             }, 1000)
 
         } else {
             handleIncorrect(prev => prev + 1);
-            event.currentTarget.classList.add('incorrect');
+            element.classList.add('incorrect');
 
-            setTimeout((event: React.MouseEvent) => {
-                event.currentTarget.classList.remove('incorrect');
+            setTimeout(() => {
+                const element = document.querySelector('#pressed');
+                element?.classList.remove('incorrect');
                 setTrigger(!trigger)
             }, 1000)
         }
