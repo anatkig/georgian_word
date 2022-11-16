@@ -20,7 +20,11 @@ const MenuBox = ({ correct, incorrect, handleCorrect, handleIncorrect }:
     }, [correct, incorrect])
 
     useEffect(() => {
-        axios.get('http://localhost:3002/index/').then(available => setAvailableWords(available.data.index.currentIndex));
+        if (process.env.PUBLIC_URL.includes("localhost")) {
+            axios.get('http://localhost:3002/index/').then(available => setAvailableWords(available.data.index.currentIndex));
+        } else {
+            setAvailableWords(Number(localStorage.getItem("currentIndex")) || 0)
+        }
 
     }, [shouldUpdateAvailable])
 
@@ -34,7 +38,12 @@ const MenuBox = ({ correct, incorrect, handleCorrect, handleIncorrect }:
             const index = { currentIndex: availableWords + 5 }
             handleCorrect(0);
             handleIncorrect(0);
-            axios.post('http://localhost:3002/index', { index });
+            if (process.env.PUBLIC_URL.includes("localhost")) {
+                axios.post('http://localhost:3002/index', { index });
+            } else {
+                localStorage.setItem("currentIndex", String(availableWords + 5));
+            }
+
             setShouldUpdateAvailable(false);
         }
     }, [shouldUpdateAvailable, availableWords, handleCorrect, handleIncorrect])

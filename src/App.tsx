@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ModalBox from './components/modal_box/ModalBox';
 import MenuBox from './components/menu_box/MenuBox';
 import './App.css';
+import setInitialLocalStorageValues from './logic/local_storage_logic';
 
 
 function App() {
   const [correct, handleCorrect] = useState(0);
   const [incorrect, handleIncorrect] = useState(0);
 
+  useEffect(() => {
+    if (process.env.PUBLIC_URL.includes("localhost")) {
+      setInitialLocalStorageValues();
+    }
+
+  }, [])
 
   return (
     <div className="App">

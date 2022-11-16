@@ -19,7 +19,11 @@ const ModalBox = ({ handleCorrect, handleIncorrect }: { handleCorrect: Dispatch<
     const [operationalArray, setOperationalArray] = useState<ReceivedArray[]>();
 
     useEffect(() => {
-        axios.get('http://localhost:3002/words').then(response => setAllWords(response.data));
+        if (process.env.PUBLIC_URL.includes("localhost")) {
+            axios.get('http://localhost:3002/words').then(response => setAllWords(response.data));
+        } else {
+            setAllWords(JSON.parse(localStorage.getItem("georgianWords") || ""))
+        }
     }, [trigger])
 
     useEffect(() => {
@@ -41,7 +45,11 @@ const ModalBox = ({ handleCorrect, handleIncorrect }: { handleCorrect: Dispatch<
     }, [operationalArray, randomIndex])
 
     useEffect(() => {
-        axios.get('http://localhost:3002/index').then(currentIndex => setCurrentIndex(currentIndex.data.index.currentIndex))
+        if (process.env.PUBLIC_URL.includes("localhost")) {
+            axios.get('http://localhost:3002/index').then(currentIndex => setCurrentIndex(currentIndex.data.index.currentIndex))
+        } else {
+            setCurrentIndex(Number(localStorage.getItem("currentIndex")));
+        }
     }, [trigger])
 
     useEffect(() => {
@@ -55,7 +63,14 @@ const ModalBox = ({ handleCorrect, handleIncorrect }: { handleCorrect: Dispatch<
         if (allWords) {
             alert("Are you sure you want to delete this?");
             const deleteKey = allWords[randomIndex].id;
-            axios.delete(`http://localhost:3002/words/${deleteKey}`);
+            if (process.env.PUBLIC_URL.includes("localhost")) {
+                axios.delete(`http://localhost:3002/words/${deleteKey}`);
+            } else {
+                const words = [...allWords];
+                words.splice(randomIndex, 1);
+                localStorage.setItem("georgianWords", JSON.stringify(words))
+            }
+
             setTrigger(!trigger);
         }
     }
