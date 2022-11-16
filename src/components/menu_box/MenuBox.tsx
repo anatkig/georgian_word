@@ -35,11 +35,9 @@ const MenuBox = ({ correct, incorrect, handleCorrect, handleIncorrect }:
             const index = { currentIndex: availableWords + 5 }
             handleCorrect(0);
             handleIncorrect(0);
-            if (process.env.PUBLIC_URL.includes("localhost")) {
-                axios.post('http://localhost:3002/index', { index });
-            } else {
-                localStorage.setItem("currentIndex", String(availableWords + 5));
-            }
+
+            localStorage.setItem("currentIndex", String(availableWords + 5));
+
 
             setShouldUpdateAvailable(false);
         }
