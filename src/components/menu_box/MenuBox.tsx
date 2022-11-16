@@ -32,7 +32,6 @@ const MenuBox = ({ correct, incorrect, handleCorrect, handleIncorrect }:
     useEffect(() => {
 
         if (shouldUpdateAvailable) {
-            const index = { currentIndex: availableWords + 5 }
             handleCorrect(0);
             handleIncorrect(0);
 
