@@ -20,11 +20,9 @@ const MenuBox = ({ correct, incorrect, handleCorrect, handleIncorrect }:
     }, [correct, incorrect])
 
     useEffect(() => {
-        if (process.env.PUBLIC_URL.includes("localhost")) {
-            axios.get('http://localhost:3002/index/').then(available => setAvailableWords(available.data.index.currentIndex));
-        } else {
-            setAvailableWords(Number(localStorage.getItem("currentIndex")) || 0)
-        }
+
+        setAvailableWords(Number(localStorage.getItem("currentIndex")) || 0)
+
 
     }, [shouldUpdateAvailable])
 

@@ -10,9 +10,9 @@ function App() {
   const [incorrect, handleIncorrect] = useState(0);
 
   useEffect(() => {
-    if (process.env.PUBLIC_URL.includes("localhost")) {
-      setInitialLocalStorageValues();
-    }
+
+    setInitialLocalStorageValues();
+
 
   }, [])
 

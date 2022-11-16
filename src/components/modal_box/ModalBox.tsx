@@ -1,7 +1,6 @@
 import React, { useState, useEffect, SetStateAction, Dispatch } from 'react';
 import './modal_box.css';
 import MainButton from '../main_button/MainButton';
-import axios from 'axios';
 import createRandomWordAndAnswers from '../../logic/modal_box_logic';
 import randomIndexGenerator from '../../logic/random_index_generator';
 import { ReceivedArray } from '../types/types';
@@ -19,11 +18,9 @@ const ModalBox = ({ handleCorrect, handleIncorrect }: { handleCorrect: Dispatch<
     const [operationalArray, setOperationalArray] = useState<ReceivedArray[]>();
 
     useEffect(() => {
-        if (process.env.PUBLIC_URL.includes("localhost")) {
-            axios.get('http://localhost:3002/words').then(response => setAllWords(response.data));
-        } else {
-            setAllWords(JSON.parse(localStorage.getItem("georgianWords") || ""))
-        }
+
+        setAllWords(JSON.parse(localStorage.getItem("georgianWords") || "{}"))
+
     }, [trigger])
 
     useEffect(() => {
@@ -45,11 +42,9 @@ const ModalBox = ({ handleCorrect, handleIncorrect }: { handleCorrect: Dispatch<
     }, [operationalArray, randomIndex])
 
     useEffect(() => {
-        if (process.env.PUBLIC_URL.includes("localhost")) {
-            axios.get('http://localhost:3002/index').then(currentIndex => setCurrentIndex(currentIndex.data.index.currentIndex))
-        } else {
-            setCurrentIndex(Number(localStorage.getItem("currentIndex")));
-        }
+
+        setCurrentIndex(Number(localStorage.getItem("currentIndex")));
+
     }, [trigger])
 
     useEffect(() => {
@@ -62,14 +57,11 @@ const ModalBox = ({ handleCorrect, handleIncorrect }: { handleCorrect: Dispatch<
     const handleDelete = (event: React.MouseEvent) => {
         if (allWords) {
             alert("Are you sure you want to delete this?");
-            const deleteKey = allWords[randomIndex].id;
-            if (process.env.PUBLIC_URL.includes("localhost")) {
-                axios.delete(`http://localhost:3002/words/${deleteKey}`);
-            } else {
-                const words = [...allWords];
-                words.splice(randomIndex, 1);
-                localStorage.setItem("georgianWords", JSON.stringify(words))
-            }
+
+            const words = [...allWords];
+            words.splice(randomIndex, 1);
+            localStorage.setItem("georgianWords", JSON.stringify(words))
+
 
             setTrigger(!trigger);
         }
