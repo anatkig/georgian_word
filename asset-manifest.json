@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/georgian_word/static/css/main.6498069f.css",
+    "main.css": "/georgian_word/static/css/main.feb6bca4.css",
     "main.js": "/georgian_word/static/js/main.52cc6bcd.js",
     "static/js/787.723b6543.chunk.js": "/georgian_word/static/js/787.723b6543.chunk.js",
     "index.html": "/georgian_word/index.html",
-    "main.6498069f.css.map": "/georgian_word/static/css/main.6498069f.css.map",
+    "main.feb6bca4.css.map": "/georgian_word/static/css/main.feb6bca4.css.map",
     "main.52cc6bcd.js.map": "/georgian_word/static/js/main.52cc6bcd.js.map",
     "787.723b6543.chunk.js.map": "/georgian_word/static/js/787.723b6543.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6498069f.css",
+    "static/css/main.feb6bca4.css",
     "static/js/main.52cc6bcd.js"
   ]
 }
