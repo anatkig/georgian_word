@@ -74,7 +74,7 @@ const ModalBox = ({ handleCorrect, handleIncorrect }: { handleCorrect: Dispatch<
         if (answer === correctAnswer) {
             handleCorrect(prev => prev + 1);
             event.currentTarget.classList.add('correct');
-            setTimeout(() => {
+            setTimeout((event: React.MouseEvent) => {
                 event.currentTarget.classList.remove('correct');
                 setTrigger(!trigger);
 
@@ -84,7 +84,7 @@ const ModalBox = ({ handleCorrect, handleIncorrect }: { handleCorrect: Dispatch<
             handleIncorrect(prev => prev + 1);
             event.currentTarget.classList.add('incorrect');
 
-            setTimeout(() => {
+            setTimeout((event: React.MouseEvent) => {
                 event.currentTarget.classList.remove('incorrect');
                 setTrigger(!trigger)
             }, 1000)
