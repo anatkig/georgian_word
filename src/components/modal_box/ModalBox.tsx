@@ -14,37 +14,42 @@ const ModalBox = ({ handleCorrect, handleIncorrect }: { handleCorrect: Dispatch<
     const [correctAnswer, setCorrectAnswer] = useState<string>();
     const [answers, setAnswers] = useState<string[]>([]);
     const [randomIndex, setRandomIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(0);
     const [trigger, setTrigger] = useState(false);
-    const [randomLang, setRandomLang] = useState(0);
+    const [operationalArray, setOperationalArray] = useState<ReceivedArray[]>();
 
     useEffect(() => {
         axios.get('http://localhost:3002/words').then(response => setAllWords(response.data));
     }, [trigger])
 
     useEffect(() => {
-        if (allWords) {
+        if (operationalArray) {
             setRandomIndex(
-                randomIndexGenerator(allWords)
+                randomIndexGenerator(operationalArray)
             );
         }
-    }, [allWords])
+    }, [operationalArray])
 
     useEffect(() => {
-        if (allWords) {
-            const [word, correctAnswer, answers] = createRandomWordAndAnswers(allWords, randomIndex);
-
-            setRandomLang(randomLang);
+        if (operationalArray) {
+            const [word, correctAnswer, answers] = createRandomWordAndAnswers(operationalArray, randomIndex);
 
             setWord(word);
             setCorrectAnswer(correctAnswer);
             setAnswers(answers);
         }
-    }, [allWords, randomIndex])
+    }, [operationalArray, randomIndex])
 
     useEffect(() => {
-        const index = { currentIndex: randomIndex }
-        axios.post('http://localhost:3002/index', { index })
-    }, [randomIndex])
+        axios.get('http://localhost:3002/index').then(currentIndex => setCurrentIndex(currentIndex.data.index.currentIndex))
+    }, [trigger])
+
+    useEffect(() => {
+        if (allWords && currentIndex) {
+            setOperationalArray(allWords.slice(0, currentIndex));
+        }
+
+    }, [allWords, currentIndex]);
 
     const handleDelete = (event: React.MouseEvent) => {
         if (allWords) {
@@ -61,11 +66,15 @@ const ModalBox = ({ handleCorrect, handleIncorrect }: { handleCorrect: Dispatch<
     const handleMainButtonClick = (event: React.MouseEvent, answer: string) => {
         if (answer === correctAnswer) {
             handleCorrect(prev => prev + 1);
-            setTrigger(!trigger);
+            event.currentTarget.classList.add('correct');
+            setTimeout(() =>
+                setTrigger(!trigger), 1500);
         } else {
             handleIncorrect(prev => prev + 1);
+            event.currentTarget.classList.add('incorrect');
 
-            setTrigger(!trigger);
+            setTimeout(() =>
+                setTrigger(!trigger), 1500);
         }
     }
 
@@ -75,7 +84,7 @@ const ModalBox = ({ handleCorrect, handleIncorrect }: { handleCorrect: Dispatch<
             <div id="button_container">
                 {answers.map(answer => <MainButton answer={answer} key={answer} handleClick={handleMainButtonClick} />)}
             </div>
-            <button id="delete_button" onClick={(event) => handleDelete(event)}> Delete the Current Word</button>
+            <button id="delete_button" onClick={(event) => handleDelete(event)}> Delete the random Word</button>
             <button id='next' onClick={handleNext}>Next=&gt;</button>
         </div>
     )

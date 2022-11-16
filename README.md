@@ -57,4 +57,4 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 **How it works.**
 
-At the beginning you are given 5 words to practice. As soon as the ratio between correct and incorrect hits gets to 9/1 and the total number of hits is more than the total number of words you have, you are given another 5 words. So, your vocabulary will constantly grow by 5 words and it will be more difficult to get to the next level.
+At the beginning you are given 5 words to practice. As soon as the ratio between correct and incorrect hits gets to 3/1 and the total number of hits is more than the total number of words you have, you are given another 5 words. So, your vocabulary will constantly grow by 5 words and it will be more difficult to get to the next level.

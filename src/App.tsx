@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ModalBox from './components/modal_box/ModalBox';
 import MenuBox from './components/menu_box/MenuBox';
 import './App.css';
-import { createJSDocProtectedTag } from 'typescript';
+
 
 function App() {
   const [correct, handleCorrect] = useState(0);
@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="App">
-      <MenuBox correct={correct} incorrect={incorrect} />
+      <MenuBox correct={correct} incorrect={incorrect} handleCorrect={handleCorrect} handleIncorrect={handleIncorrect} />
       <ModalBox handleCorrect={handleCorrect} handleIncorrect={handleIncorrect} />
     </div>
   );

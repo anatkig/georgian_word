@@ -1,6 +1,6 @@
 #menu_box {
     width: 700px;
-    height: 100px;
+    height: 145px;
     background: green;
     font-size: 24px;
     margin: 5px auto;
@@ -26,6 +26,12 @@
     font-size: 25px;
     background-color: white;
     color: black;
+}
 
+#availbale_words {
+    padding: 4px;
+}
 
+#level {
+    padding: 4px;
 }
