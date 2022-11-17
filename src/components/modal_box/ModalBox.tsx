@@ -1,9 +1,9 @@
 import React, { useState, useEffect, SetStateAction, Dispatch } from 'react';
 import './modal_box.css';
-import MainButton from '../main_button/MainButton';
 import createRandomWordAndAnswers from '../../logic/modal_box_logic';
 import randomIndexGenerator from '../../logic/random_index_generator';
 import { ReceivedArray } from '../types/types';
+import MainButtonsContainer from '../main_buttons_container/MainButtonsContainer';
 
 
 const ModalBox = ({ handleCorrect, handleIncorrect }: { handleCorrect: Dispatch<SetStateAction<number>>, handleIncorrect: Dispatch<SetStateAction<number>> }) => {
@@ -77,28 +77,10 @@ const ModalBox = ({ handleCorrect, handleIncorrect }: { handleCorrect: Dispatch<
         setTrigger(!trigger);
     }
 
-    const handleMainButtonClick = (event: React.MouseEvent, answer: string) => {
-        const element = event.currentTarget;
-        if (answer === correctAnswer) {
-
-            handleCorrect(prev => prev + 1);
-            element.classList.add('correct');
-            setTimeOut(!timeOut)
-
-        } else {
-            handleIncorrect(prev => prev + 1);
-            element.classList.add('incorrect');
-
-            setTimeOut(!timeOut)
-        }
-    }
-
     return (
         <div id="modal_box">
             <div id="word">{word}</div>
-            <div id="button_container">
-                {answers.map(answer => <MainButton answer={answer} key={answer} handleClick={handleMainButtonClick} />)}
-            </div>
+            <MainButtonsContainer {...{ handleCorrect, handleIncorrect, answers, correctAnswer, setTimeOut }} />
             <button id="delete_button" onClick={(event) => handleDelete(event)}> Delete the random Word</button>
             <button id='next' onClick={handleNext}>Next=&gt;</button>
         </div>

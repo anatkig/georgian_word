@@ -15,12 +15,6 @@
     font-size: 46px;
 }
 
-#button_container {
-    display: flex;
-    justify-content: space-around;
-    padding: 2px;
-}
-
 #delete_button {
     background-color: black;
     cursor: pointer;
@@ -30,16 +24,6 @@
 #next {
     font-size: 25px;
     cursor: pointer;
-}
-
-.incorrect {
-    background-color: red !important;
-}
-
-.correct {
-    background-color: green !important;
-    color: white !important;
-    transform: scale(1.4) !important;
 }
 
 @media screen and (max-width: 415px) {

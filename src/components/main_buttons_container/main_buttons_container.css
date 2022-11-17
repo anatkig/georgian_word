@@ -1,0 +1,24 @@
+#main_buttons_container {
+    display: flex;
+    justify-content: space-around;
+    padding: 2px;
+}
+
+.incorrect {
+    background-color: red !important;
+}
+
+.correct {
+    background-color: green !important;
+    color: white !important;
+    transform: scale(1.4) !important;
+}
+
+
+@media screen and (max-width: 415px) {
+
+
+    #main_buttons_container {
+        flex-wrap: wrap;
+    }
+}
