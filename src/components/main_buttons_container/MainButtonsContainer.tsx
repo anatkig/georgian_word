@@ -1,7 +1,7 @@
-import React, { useState, useEffect, SetStateAction, Dispatch } from 'react';
-import './main_buttons_container.css'
+import React, { SetStateAction, Dispatch, useState, useEffect } from 'react';
 import MainButton from '../main_button/MainButton';
-
+import { nanoid } from 'nanoid';
+import './main_buttons_container.css'
 
 const MainButtonsContainer = ({ handleCorrect, handleIncorrect, answers, correctAnswer, setTimeOut }:
     {
@@ -12,26 +12,32 @@ const MainButtonsContainer = ({ handleCorrect, handleIncorrect, answers, correct
         setTimeOut: Dispatch<React.SetStateAction<boolean>>
     }) => {
 
+    const [style, setStyle] = useState(["", "", "", ""]);
+
+    useEffect(() => {
+        return setStyle(["", "", "", ""]);
+    }, [answers])
 
     const handleMainButtonClick = (event: React.MouseEvent, answer: string) => {
-        const element = event.currentTarget;
+        const index = answers.indexOf(answer);
+
         if (answer === correctAnswer) {
 
             handleCorrect(prev => prev + 1);
-            element.classList.add('correct');
+            setStyle(prev => [...prev].map((el, ind) => ind === index ? "correct" : el));
             setTimeOut(prev => !prev)
 
         } else {
             handleIncorrect(prev => prev + 1);
-            element.classList.add('incorrect');
+            setStyle(prev => [...prev].map((el, ind) => ind === index ? "incorrect" : el))
 
             setTimeOut(prev => !prev)
         }
     }
-    console.log(answers)
+
     return (
         <div id="#main_buttons_container">
-            {answers.map(answer => <MainButton answer={answer} key={answer} handleClick={handleMainButtonClick} />)}
+            {answers.map((answer, index) => <MainButton answer={answer} key={nanoid()} handleClick={handleMainButtonClick} style={style[index]} index={index} />)}
         </div>
     )
 }

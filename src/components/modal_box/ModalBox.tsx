@@ -1,10 +1,9 @@
 import React, { useState, useEffect, SetStateAction, Dispatch } from 'react';
-import './modal_box.css';
 import createRandomWordAndAnswers from '../../logic/modal_box_logic';
 import randomIndexGenerator from '../../logic/random_index_generator';
 import { ReceivedArray } from '../types/types';
 import MainButtonsContainer from '../main_buttons_container/MainButtonsContainer';
-
+import './modal_box.css';
 
 const ModalBox = ({ handleCorrect, handleIncorrect }: { handleCorrect: Dispatch<SetStateAction<number>>, handleIncorrect: Dispatch<SetStateAction<number>> }) => {
 

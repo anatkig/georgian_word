@@ -18,7 +18,6 @@ const createRandomWordAndAnswers = (array: ReceivedArray[], randomIndex: number)
     const incorrectAnswersRaw = shuffledArrayWithoutTheWord.slice(0, 3);
     const incorrectAnswers = incorrectAnswersRaw.map(unit => unit[correctAnsLang]);
     const answers = shuffle([correctAnswer, ...incorrectAnswers]);
-
     const result: [string, string, string[]] = [word, correctAnswer, [...answers]];
 
 
