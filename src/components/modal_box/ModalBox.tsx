@@ -16,11 +16,13 @@ const ModalBox = ({ handleCorrect, handleIncorrect }: { handleCorrect: Dispatch<
     const [currentIndex, setCurrentIndex] = useState(0);
     const [trigger, setTrigger] = useState(false);
     const [operationalArray, setOperationalArray] = useState<ReceivedArray[]>();
+    const [timeOut, setTimeOut] = useState(false);
 
     useEffect(() => {
-
-        setAllWords(JSON.parse(localStorage.getItem("georgianWords") || "{}"))
-
+        const wordArrayRaw = localStorage.getItem("georgianWords");
+        if (wordArrayRaw) {
+            setAllWords(JSON.parse(wordArrayRaw))
+        }
     }, [trigger])
 
     useEffect(() => {
@@ -54,6 +56,11 @@ const ModalBox = ({ handleCorrect, handleIncorrect }: { handleCorrect: Dispatch<
 
     }, [allWords, currentIndex]);
 
+    useEffect(() => {
+        setTimeout(() => { setTrigger(prev => !prev) }, 1000)
+
+    }, [timeOut])
+
     const handleDelete = (event: React.MouseEvent) => {
         if (allWords) {
             alert("Are you sure you want to delete this?");
@@ -72,27 +79,17 @@ const ModalBox = ({ handleCorrect, handleIncorrect }: { handleCorrect: Dispatch<
 
     const handleMainButtonClick = (event: React.MouseEvent, answer: string) => {
         const element = event.currentTarget;
-        element.setAttribute("id", "pressed")
         if (answer === correctAnswer) {
 
             handleCorrect(prev => prev + 1);
             element.classList.add('correct');
-            setTimeout(() => {
-                const element = document.querySelector('#pressed');
-                element?.classList.remove('correct');
-                setTrigger(!trigger);
-
-            }, 1000)
+            setTimeOut(!timeOut)
 
         } else {
             handleIncorrect(prev => prev + 1);
             element.classList.add('incorrect');
 
-            setTimeout(() => {
-                const element = document.querySelector('#pressed');
-                element?.classList.remove('incorrect');
-                setTrigger(!trigger)
-            }, 1000)
+            setTimeOut(!timeOut)
         }
     }
 
