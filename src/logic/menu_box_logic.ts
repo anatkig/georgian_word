@@ -1,4 +1,4 @@
-const shouldUpdateCurrentIndex = (correct: number, incorrect: number, available: number) => {
+export const shouldUpdateCurrentIndex = (correct: number, incorrect: number, available: number) => {
 
     if (correct + incorrect >= available) {
         if ((incorrect === 0 && correct > 0) || correct / incorrect >= 3) {
@@ -9,4 +9,26 @@ const shouldUpdateCurrentIndex = (correct: number, incorrect: number, available:
     return false;
 }
 
-export default shouldUpdateCurrentIndex;
+export const updateCurrentIndex = (prevIndex: number) => {
+
+    const keptDataArrRaw = localStorage.getItem("georgianWords");
+
+    if (keptDataArrRaw) {
+        const keptDataArr = JSON.parse(keptDataArrRaw);
+
+        const len = keptDataArr.length;
+
+        if (prevIndex + 5 <= len) {
+            localStorage.setItem("currentIndex", String(prevIndex + 5));
+        }
+    }
+}
+
+export const updateLevel = () => {
+    const keptLevelRaw = localStorage.getItem("level");
+    if (keptLevelRaw) {
+        const keptLevel = Number(keptLevelRaw);
+
+        localStorage.setItem("level", String(keptLevel + 1));
+    }
+}

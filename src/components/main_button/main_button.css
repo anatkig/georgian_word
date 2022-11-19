@@ -3,7 +3,7 @@
     border: solid black 1px;
     background-color: lightblue;
     color: darkgreen;
-    font-size: 46px;
+    font-size: 35px;
     margin: 3px 6px;
     cursor: pointer;
     display: inline-block;
@@ -17,7 +17,7 @@
 
 @media screen and (max-width: 415px) {
     .main_button {
-        font-size: 30px;
+        font-size: 25px;
     }
 
 }

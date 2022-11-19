@@ -1,6 +1,7 @@
 import React, { SetStateAction, Dispatch, useState, useEffect } from 'react';
 import MainButton from '../main_button/MainButton';
 import { nanoid } from 'nanoid';
+import { changeCoof } from '../../logic/local_storage_logic';
 import './main_buttons_container.css'
 
 const MainButtonsContainer = ({ handleCorrect, handleIncorrect, answers, correctAnswer, setTimeOut }:
@@ -25,13 +26,15 @@ const MainButtonsContainer = ({ handleCorrect, handleIncorrect, answers, correct
 
             handleCorrect(prev => prev + 1);
             setStyle(prev => [...prev].map((el, ind) => ind === index ? "correct" : el));
-            setTimeOut(prev => !prev)
-
+            changeCoof(correctAnswer, -1);
+            setTimeOut(prev => !prev);
         } else {
-            handleIncorrect(prev => prev + 1);
-            setStyle(prev => [...prev].map((el, ind) => ind === index ? "incorrect" : el))
-
-            setTimeOut(prev => !prev)
+            if (correctAnswer) {
+                handleIncorrect(prev => prev + 1);
+                setStyle(prev => [...prev].map((el, ind) => ind === index ? "incorrect" : el))
+                changeCoof(correctAnswer, 1)
+                setTimeOut(prev => !prev)
+            }
         }
     }
 

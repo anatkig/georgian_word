@@ -1,6 +1,6 @@
 import './menu_box.css';
 import { useState, useEffect, SetStateAction, Dispatch } from 'react';
-import shouldUpdateCurrentIndex from '../../logic/menu_box_logic';
+import { shouldUpdateCurrentIndex, updateCurrentIndex, updateLevel } from '../../logic/menu_box_logic';
 
 
 const MenuBox = ({ correct, incorrect, handleCorrect, handleIncorrect }:
@@ -10,6 +10,7 @@ const MenuBox = ({ correct, incorrect, handleCorrect, handleIncorrect }:
     const [incorrectAnswers, setinCorrectAnswers] = useState(0);
     const [availableWords, setAvailableWords] = useState(0);
     const [shouldUpdateAvailable, setShouldUpdateAvailable] = useState(false);
+    const [level, setLevel] = useState(Number(localStorage.getItem("level")) || 0);
 
 
     useEffect(() => {
@@ -35,7 +36,10 @@ const MenuBox = ({ correct, incorrect, handleCorrect, handleIncorrect }:
             handleCorrect(0);
             handleIncorrect(0);
 
-            localStorage.setItem("currentIndex", String(availableWords + 5));
+            updateCurrentIndex(availableWords);
+            setLevel(prev => prev + 1);
+            updateLevel();
+
 
 
             setShouldUpdateAvailable(false);
@@ -44,7 +48,7 @@ const MenuBox = ({ correct, incorrect, handleCorrect, handleIncorrect }:
 
     return (
         <div id="menu_box">
-            <div id='level'>Your level: {(availableWords / 5) - 1}</div>
+            <div id='level'>Your level: {level}</div>
             <div className='menu_box--element-container'>
                 <div className='menu_box--element'>Correct</div>
                 <div className='menu_box--element'>Incorrect</div>

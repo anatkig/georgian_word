@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ModalBox from './components/modal_box/ModalBox';
 import MenuBox from './components/menu_box/MenuBox';
 import './App.css';
-import setInitialLocalStorageValues from './logic/local_storage_logic';
+import { setInitialLocalStorageValues } from './logic/local_storage_logic';
 
 
 function App() {
