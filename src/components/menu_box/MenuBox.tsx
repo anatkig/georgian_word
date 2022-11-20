@@ -37,14 +37,12 @@ const MenuBox = ({ correct, incorrect, handleCorrect, handleIncorrect }:
             handleIncorrect(0);
 
             updateCurrentIndex(availableWords);
-            setLevel(prev => prev + 1);
-            updateLevel();
-
-
-
             setShouldUpdateAvailable(false);
+
+            updateLevel(level);
+            setLevel(prev => prev + 1);
         }
-    }, [shouldUpdateAvailable, availableWords, handleCorrect, handleIncorrect])
+    }, [shouldUpdateAvailable, availableWords, handleCorrect, handleIncorrect, level])
 
     return (
         <div id="menu_box">

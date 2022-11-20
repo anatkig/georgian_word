@@ -24,11 +24,6 @@ export const updateCurrentIndex = (prevIndex: number) => {
     }
 }
 
-export const updateLevel = () => {
-    const keptLevelRaw = localStorage.getItem("level");
-    if (keptLevelRaw) {
-        const keptLevel = Number(keptLevelRaw);
-
-        localStorage.setItem("level", String(keptLevel + 1));
-    }
+export const updateLevel = (currentLevel: number) => {
+    localStorage.setItem("level", String(currentLevel + 1));
 }

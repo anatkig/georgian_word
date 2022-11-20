@@ -671,12 +671,19 @@ const data = {
 };
 
 export const setInitialLocalStorageValues = () => {
-    const localIndex = localStorage.getItem("currentIndex");
+    const localKeptWords = localStorage.getItem("georgianWords");
 
-    if (!localIndex) {
+    if (!localKeptWords) {
         localStorage.setItem("currentIndex", "5");
 
         localStorage.setItem("georgianWords", JSON.stringify(data.words));
+    } else {
+        const keptWords = JSON.parse(localKeptWords);
+        const keptWordsGu = keptWords.map((word: ReceivedArray) => word.gu);
+        const notInStorage = data.words.filter(word => keptWordsGu.includes(word.gu));
+        const wordstoKeep = [...keptWords, ...notInStorage];
+
+        localStorage.setItem("georgianWords", JSON.stringify(wordstoKeep));
     }
 }
 
