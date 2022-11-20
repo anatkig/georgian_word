@@ -661,6 +661,135 @@ const data = {
             "coof": 0,
             "ru": "Чистые тарелки",
             "gu": "სუფთა ფირფიტები"
+        },
+        {
+            "coof": 0,
+            "ru": "they believe her",
+            "gu": "მათ სჯერათ მისი"
+        },
+        {
+            "coof": 0,
+            "ru": "we believe her",
+            "gu": "ჩვენ გვჯერა მისი"
+        },
+        {
+            "coof": 0,
+            "ru": "he believes you",
+            "gu": "მას სჯერა შენი"
+        },
+        {
+            "coof": 0,
+            "ru": "you believe them",
+            "gu": "თქვენ გჯერათ მათი"
+        },
+        {
+            "coof": 0,
+            "ru": "I believe her",
+            "gu": "მე მჯერა მისი"
+        },
+        {
+            "coof": 0,
+            "ru": "neighbors understand this word",
+            "gu": "მეზობლებს ესმით ეს სიტყვა"
+        },
+        {
+            "coof": 0,
+            "ru": "we understand this word",
+            "gu": "ჩვენ გვესმის ეს სიტყვა"
+        },
+        {
+            "coof": 0,
+            "ru": "neighbour understands this word",
+            "gu": "მეზობელს ესმის ეს სიტყვა"
+        },
+        {
+            "coof": 0,
+            "ru": "you understand this word",
+            "gu": "თქვენ გესმით ეს სიტყვა"
+        },
+        {
+            "coof": 0,
+            "ru": "I understand this word",
+            "gu": "მე მესმის ეს სიტყვა"
+        },
+        {
+            "coof": 0,
+            "ru": "they remember this song",
+            "gu": "მათ ეს სიმღერა ახსოვთ"
+        },
+        {
+            "coof": 0,
+            "ru": "we remember this song",
+            "gu": "ჩვენ გვახსოვს ეს სიმღერა"
+        },
+        {
+            "coof": 0,
+            "ru": "he remembers this song",
+            "gu": "მას ახსოვს ეს სიმღერა"
+        },
+        {
+            "coof": 0,
+            "ru": "you remember this song",
+            "gu": "გახსოვთ ეს სიმღერა"
+        },
+        {
+            "coof": 0,
+            "ru": "I remember this song",
+            "gu": "მახსოვს ეს სიმღერა"
+        },
+        {
+            "coof": 0,
+            "ru": "they know our brother",
+            "gu": "მათ იციან ჩვენი ძმა"
+        },
+        {
+            "coof": 0,
+            "ru": "we know your sister",
+            "gu": "ჩვენ ვიცნობთ თქვენს დას"
+        },
+        {
+            "coof": 0,
+            "ru": "he knows his father",
+            "gu": "მან იცის მისი მამა"
+        },
+        {
+            "coof": 0,
+            "ru": "you know him",
+            "gu": "თქვენ მას იცნობთ"
+        },
+        {
+            "coof": 0,
+            "ru": "I know him",
+            "gu": "მე მას ვიცნობ"
+        },
+        {
+            "coof": 0,
+            "ru": "we think about money",
+            "gu": "ფულზე ვფიქრობთ"
+        },
+        {
+            "coof": 0,
+            "ru": "they think about money",
+            "gu": "ისინი ფულზე ფიქრობენ"
+        },
+        {
+            "coof": 0,
+            "ru": "he thinks about money",
+            "gu": "ის ფულზე ფიქრობს"
+        },
+        {
+            "coof": 0,
+            "ru": "I think about my job",
+            "gu": "ჩემს სამუშაოზე ვფიქრობ"
+        },
+        {
+            "coof": 0,
+            "ru": "you and your father think about me",
+            "gu": "შენ და მამაშენი ჩემზე ფიქრობთ"
+        },
+        {
+            "coof": 0,
+            "gu": "მე ვფიქრობ ჩემს ოჯახზე"
         }
     ],
     "index": {
